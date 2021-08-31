@@ -1,62 +1,44 @@
-import React, {useState} from 'react';
-import { StatusBar, View, Text, Image, StyleSheet, KeyboardAvoidingView } from 'react-native';
-import {Input, Button} from 'react-native-elements';
-import NavLink from '../components/NavLinks';
+/import '../_MockLocation';
+import React, {useEffect} from 'react';
+import {Text, View, StyleSheet, Image,SafeAreaView} from 'react-native';
+import Call from '../components/Call';
+import Tracker from '../components/Tracker';
+import Trackee from '../components/Trackee';
+//import useLocation from '../hooks/useLocation';
 
-const LoginScreen = (props) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const LocationScreen = () => {
+    //const [errorMsg] = useLocation(isFocused);
 
-  return (
-    <View style={styles.container}>
-      <StatusBar style="light" />
-      <Image
-        source={require('../img/pinkpal.png')}
-        style={{width: 300, height: 150}}
-      />
-      <View style={styles.inputContainer}>
-        <Input
-          label="Email"
-          type="email"
-          value={email}
-          onChangeText={text => { setEmail(text) }}
-          autoCapitalize="none"
-          autoCorrect={false}
-        />
-        <Input
-          label="Password"
-          secureTextEntry
-          type="password"
-          value={password}
-          onChangeText={password => { setPassword(password) }}
-          autoCapitalize="none"
-          autoCorrect={false}
-        />
-      </View>
-      <Button containerStyle={styles.button} title="Login" />
 
-      <NavLink 
-        text="Don't have an account? Sign up instead"
-        routeName="Register"
-      />
-    </View>
-  );
+    return (
+        
+       <View style={styles.container}>
+         <Image style={styles.img} source={require('../img/pinkpal.png')} /> 
+          
+         <Tracker />
+         <Call />
+         <Trackee />
+       </View>
+       
+    );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10,
-  },
-  button: {
-    width: 200,
-    marginTop: 30,
-  },
-  inputContainer: {
-    width: 300,
-  },
+    container: {
+        flex:1,
+        marginTop:4,
+        marginBottom:20,
+        alignItems: 'center',
+        
+    },
+    img: {
+      // flex:1,
+        //marginTop:5,
+       height: 70,
+        width: 100
+    }
 });
 
-export default LoginScreen;
+export default LocationScreen;
+
+
