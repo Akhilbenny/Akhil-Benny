@@ -99,10 +99,16 @@ class Tracker extends React.Component {
 
 const styles = StyleSheet.create({
   map: {
-  flex:1,
+  flex:2,
     height: 250,
     borderWidth: 185
   },
+  container: {
+ // flex:1,
+    //marginTop:4,
+   
+    
+},
 });
 
 export default Tracker;
